@@ -1,0 +1,37 @@
+{
+    "name": "rekalogika/file-zip",
+    "description": "Streams a collection of files as a zip file to the client",
+    "homepage": "https://rekalogika.dev/file-bundle",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "file",
+        "symfony",
+        "zipstream",
+        "zip",
+        "archive",
+        "download",
+        "stream",
+        "http"
+    ],
+    "authors": [
+        {
+            "name": "Priyadi Iman Nurcahyo",
+            "email": "priyadi@rekalogika.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Rekalogika\\File\\Zip\\": "src/"
+        }
+    },
+    "require": {
+        "rekalogika/file-contracts": "^1.5",
+        "maennchen/zipstream-php": "^3.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.5-dev"
+        }
+    }
+}
