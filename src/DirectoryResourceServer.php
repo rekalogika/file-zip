@@ -13,13 +13,12 @@ declare(strict_types=1);
 
 namespace Rekalogika\File\Zip;
 
-use Rekalogika\Contracts\File\FileInterface;
 use Rekalogika\Contracts\File\DirectoryInterface;
+use Rekalogika\Contracts\File\FileInterface;
 use Rekalogika\File\Zip\Model\Directory;
 use Rekalogika\TemporaryUrl\Attribute\AsTemporaryUrlResourceTransformer;
 use Rekalogika\TemporaryUrl\Attribute\AsTemporaryUrlServer;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class DirectoryResourceServer
@@ -49,10 +48,6 @@ final class DirectoryResourceServer
     #[AsTemporaryUrlServer]
     public function respond(Directory $directory): Response
     {
-        $response = new StreamedResponse(function () use ($directory) {
-            $this->fileZip->streamZip($directory);
-        });
-
-        return $response;
+        return $this->fileZip->createZipResponse($directory);
     }
 }
