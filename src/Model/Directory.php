@@ -45,7 +45,11 @@ final class Directory implements DirectoryInterface, \IteratorAggregate
     #[\Override]
     public function getName(): FileNameInterface
     {
-        return new FileName($this->name);
+        if ($this->name !== null) {
+            return new FileName($this->name . '.zip');
+        } else {
+            return new FileName(null, 'zip');
+        }
     }
 
     #[\Override]
